@@ -5,7 +5,10 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
+<<<<<<< HEAD
     <script type="text/javascript" src="main.js"></script>
+=======
+>>>>>>> origin/master
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Raleway:400,200,700,300italic,200italic|Roboto+Slab:400,100|Titillium+Web:400,200,200italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
   </head>
 
@@ -18,12 +21,85 @@
 
     <div id="map"></div>
     <div id="output"></div>
+<<<<<<< HEAD
+=======
 
     <button class="button" onclick="deleteMarkers()">Delete Marker</button>
     <button class="button" onclick="viewData()">View Data</button>
     <button class="button" onclick="">Submit</button>
     <div id="data"></div>
 
+    <script>
+
+      var map;
+      var myLatlng = {lat: 39.9522, lng: -75.1932}; 
+      var markers = [];
+      var markerData;  
+      
+      function initMap() {
+>>>>>>> origin/master
+
+    <button class="button" onclick="deleteMarkers()">Delete Marker</button>
+    <button class="button" onclick="viewData()">View Data</button>
+    <button class="button" onclick="">Submit</button>
+    <div id="data"></div>
+
+<<<<<<< HEAD
+=======
+        // This event listener will call addMarker() when the map is clicked.    
+        map.addListener('click', function(event) {    
+            createMarker(event.latLng);   
+          });    
+            
+/*        marker.addListener('click', function() {
+          setMapOnAll(null);
+          markers = [];
+        })    
+*/
+      }    
+  
+// Adds a marker to the map and push to the array. 
+      function createMarker(location) {
+          deleteMarkers();
+          var marker = new google.maps.Marker({
+            position: location,
+            map: map
+          });
+
+          markers.push(marker); //marker is created
+          markerData=location;
+
+/*          document.getElementById("output").innerHTML=location;   */
+      }   
+
+//when called, shows coordinate point
+      function viewData() {
+        clear();
+        document.getElementById("data").innerHTML= markerData;
+      }
+
+// Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+        
+// Deletes all markers in the array by removing references to them, in this case: only one needs to be removed
+      function deleteMarkers() {
+        setMapOnAll(null);
+        markers = [];
+        markerData = null;
+      }
+
+      function clear() {
+        document.getElementById("output").innerHTML="";
+      }
+  
+
+    </script>
+    
+>>>>>>> origin/master
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiPakdfnAN2jSuKVqZDd2MOV2_QgUO9ac&callback=initMap"
     async defer></script>
 
