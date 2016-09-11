@@ -86,21 +86,33 @@
                     <h1 class="form-group title">Description</h1>
                 </div>
                 <div id="form">
-                    <form>
-                        <fieldset class="form-group row">
-                            <label class="col-sm-2" for="name">Name</label>
-                            <div class="col-sm-5">
-                                <input id="firstName" type="name" class="form-control" placeholder="First">
-                            </div>
-                            <div class="col-sm-5">
-                                <input id="lastName" type="name" class="form-control" placeholder="Last">
-                            </div>
-                        </fieldset>
+                    <form action="" method="post" enctype="multipart/form-data">
+         <fieldset>
+            <div>
+                        <label for="Description">Description:</label>
+            <textarea id="description" name="description" placeholder="Enter a short description about yourself"></textarea>
+            <br />
+            <div>
+            <br />
+            <label for="Last Name">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your full name" />
+            <label for="Email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" />
+        </div>
+            <br />
+            <label for="Description2">Coordinates:</label>
+            <textarea id="coordinates" name="coordinates" placeholder="Click on map to retrieve location data"></textarea>
+            <br />
+            <input type="submit" value="Create Profile" />
+            </div>
+         </fieldset>
+                        <!--
                         <fieldset class="form-group row">
                             <label class="col-sm-2" for="age">Age</label>
                             <div class="col-sm-3">
                                 <input id="age" type="age" class="form-control">
                             </div>
+                        
                         </fieldset>
                         <fieldset class="form-group row">
                             <label class="col-sm-2" for="height">Height</label>
@@ -155,6 +167,7 @@
                         <fieldset class="form-group row col-sm-2">
                             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                         </fieldset>
+                    -->
                     </form>
                 </div>
             </div>
@@ -169,7 +182,6 @@
 
                 <button class="button" onclick="deleteMarkers()">Delete Marker</button>
                 <button class="button" onclick="viewData()">View Data</button>
-                <button class="button" onclick="">Submit</button>
                 <div id="data"></div>
                 
                 
@@ -195,9 +207,12 @@
         });
 
         // This event listener will call addMarker() when the map is clicked.    
-        map.addListener('click', function(event) {    
-            createMarker(event.latLng);   
-          });    
+        map.addListener('click', function(event) {
+            clear();    
+            createMarker(event.latLng);
+            document.getElementById("coordinates").value= markerData;   
+          }); 
+ 
             
 /*        marker.addListener('click', function() {
           setMapOnAll(null);
@@ -222,9 +237,12 @@
 
 //when called, shows coordinate point
       function viewData() {
-        clear();
-        document.getElementById("data").innerHTML= markerData;
+
       }
+//return markerData content
+        function retrieveLocation() {
+            return markerData;
+        }
 
 // Sets the map on all markers in the array.
       function setMapOnAll(map) {
