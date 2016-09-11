@@ -1,35 +1,250 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Urban Help Project</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="assets/stylesheets/main.css">
-    <script type="text/javascript" src="assets/script/main.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Slabo+27px|Raleway:400,200,700,300italic,200italic|Roboto+Slab:400,100|Titillium+Web:400,200,200italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
-  </head>
+     <head>
+        <title>Urban Help Project</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color:#EBEBEB;
+        }
+        
+        
+        #description {
+            margin-top:60px;
+        }
+        #form {
+            margin-left:25px;
+        }
+        #map {
+            margin-top:60px;
+        }
+        #jeesoo {
+            margin-left:25px;
+        }
+        .title  {
+            font-family: Anders;
+            color: black;
+            font-size:300%;
+            margin-left:25px;
+        }
+        
+        
+        
+        
+        
+        #jeesoo {
+            height: 50%;
+            width: 75%;
+            margin-left: 12.5%;
+            margin-right: 12.5%;
+        }
+        #output{
+          text-align:center;
+        }
 
-  <body class="center">
-    <div>
-      <p>drop a marker at the location of sighting.</p>
-      <p>scroll to zoom.</p>
-    </div>
+        .center {
+          text-align: center;
+        }
+        .objectcenter {
+          position: absolute;
+        }
+        .button {
+          margin-top: 20px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 2;
+        }
+        
+    </style>
+    <body>
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color:#EBEBEB">
+            <a class="navbar-brand" href="UHP.html" style="font-family:Anders">U H P</a>
+            <ul class="nav navbar-nav" style="font-family:avenir">
+                <li class="nav-item">
+                    <a class="nav-link" href="UHP.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uhppartners.html">Partners</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="uhpcontribute.html">Contribute<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="description">
+                    <h1 class="form-group title">Description</h1>
+                </div>
+                <div id="form">
+                    <form>
+                        <fieldset class="form-group row">
+                            <label class="col-sm-2" for="name">Name</label>
+                            <div class="col-sm-5">
+                                <input id="firstName" type="name" class="form-control" placeholder="First">
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="lastName" type="name" class="form-control" placeholder="Last">
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group row">
+                            <label class="col-sm-2" for="age">Age</label>
+                            <div class="col-sm-3">
+                                <input id="age" type="age" class="form-control">
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group row">
+                            <label class="col-sm-2" for="height">Height</label>
+                            <div class="col-sm-2">
+                                <select class="form-control" id="feet">
+                                <option></option>
+                                <option>1 ft</option>
+                                <option>2 ft</option>
+                                <option>3 ft</option>
+                                <option>4 ft</option>
+                                <option>5 ft</option>
+                                <option>6 ft</option>
+                                <option>7 ft</option>    
+                            </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select class="form-control" id="inches">
+                                <option></option>
+                                <option>1 in</option>
+                                <option>2 in</option>
+                                <option>3 in</option>
+                                <option>4 in</option>
+                                <option>5 in</option>
+                                <option>6 in</option>
+                                <option>7 in</option>
+                                <option>8 in</option>
+                                <option>9 in</option>
+                                <option>10 in</option>
+                                <option>11 in</option>
+                                <option>12 in</option>    
+                            </select>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group row">
+                            <label class="col-sm-2" for="weight">Weight (lb)</label>
+                            <div class="col-sm-3">
+                                <input id="weight" type="weight" class="form-control">
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group row">
+                            <label class="col-sm-2" for="ethnicity">Ethnicity</label>
+                            <div class="col-sm-6">
+                                <input id="ethnicity" type="ethnicity" class="form-control">
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group row">
+                            <label class="col-sm-2" for="notes">Notes</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="notes" rows="4"></textarea>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group row col-sm-2">
+                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div id="map">
+                    <h1 class="form-group title">Map</h1>
+                </div>
+                
+                
+                <div id="jeesoo"></div>
+                <div id="output"></div>
 
-    <div id="map"></div>
-    <div id="output"></div>
-
-    <button class="button" onclick="deleteMarkers()">Delete Marker</button>
-    <button class="button" onclick="viewData()">View Data</button>
-    <button class="button" onclick="">Submit</button>
-    <div id="data"></div>
-
+                <button class="button" onclick="deleteMarkers()">Delete Marker</button>
+                <button class="button" onclick="viewData()">View Data</button>
+                <button class="button" onclick="">Submit</button>
+                <div id="data"></div>
+                
+                
+            </div>
+        </div>
+        
+    </body>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiPakdfnAN2jSuKVqZDd2MOV2_QgUO9ac&callback=initMap"
     async defer></script>
+    
+    <script type="text/javascript">
+        
+      var map;
+      var myLatlng = {lat: 39.9522, lng: -75.1932}; 
+      var markers = [];
+      var markerData;  
+      
+      function initMap() {
 
-  </body>
+        map = new google.maps.Map(document.getElementById('jeesoo'), {
+          center: myLatlng,
+          zoom: 8
+        });
 
-  <footer>
-  </footer>
+        // This event listener will call addMarker() when the map is clicked.    
+        map.addListener('click', function(event) {    
+            createMarker(event.latLng);   
+          });    
+            
+/*        marker.addListener('click', function() {
+          setMapOnAll(null);
+          markers = [];
+        })    
+*/
+      }    
+  
+// Adds a marker to the map and push to the array. 
+      function createMarker(location) {
+          deleteMarkers();
+          var marker = new google.maps.Marker({
+            position: location,
+            map: map
+          });
 
+          markers.push(marker); //marker is created
+          markerData=location;
+
+/*          document.getElementById("output").innerHTML=location;   */
+      }   
+
+//when called, shows coordinate point
+      function viewData() {
+        clear();
+        document.getElementById("data").innerHTML= markerData;
+      }
+
+// Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+        
+// Deletes all markers in the array by removing references to them, in this case: only one needs to be removed
+      function deleteMarkers() {
+        setMapOnAll(null);
+        markers = [];
+        markerData = null;
+      }
+
+      function clear() {
+        document.getElementById("output").innerHTML="";
+      }
+
+    
+    </script>
+    
 </html>
-
