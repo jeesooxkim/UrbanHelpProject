@@ -1,5 +1,5 @@
 <html>
-    <head>
+     <head>
         <title>Urban Help Project</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial scale=1, shrink-to-fit=no">
@@ -12,83 +12,255 @@
         html, body {
             max-width: 100%;
             overflow-x: hidden;
-        }
-        body {
             background-color:#EBEBEB;
         }
-        .display-3 {
-            text-align: center;
-            font-family:Anders;
-            color: whitesmoke;
-            font-size: 520%;
-            margin-top:35px;
+        
+        #description {
+            margin-top:60px;
         }
-        .lead {
-            text-align:center;
-            font-family:Anders;
-            font-size:120%;
-            color: ghostwhite;
+        #form {
+            margin-left:25px;
         }
-        #landing {
-            margin-top: 25px;
-            background-image: url(penn1.jpeg);
-            background-position: center;
-            background-size: cover;
-            min-height: 330px;
+        #map {
+            margin-top:60px;
         }
-        .explanation {
-            font-family:Avenir;
-            text-align: center;
+        #jeesoo {
+            margin-left:25px;
         }
-        .center-block {
+        .title  {
+            font-family: Anders;
+            color: black;
+            font-size:300%;
+            margin-left:25px;
+        }
+        
+        fieldset {
             position:relative;
-            width:70%;
+            left:15px;
         }
-        #final {
-            margin-top:15px;
+        .mapButton {
+            margin-top:10px;
+            margin-left:25px;
+        }
+        .inverse {
+            color: #EBEBEB
+        }
+        
+        
+        
+        #jeesoo {
+            height: 60%;
+            width: 90%;
+            border: 1px solid black;
+        }
+        #output{
+          text-align:center;
+        }
+        .center {
+          text-align: center;
+        }
+        .objectcenter {
+          position: absolute;
+        }
+        .button {
+          margin-top: 20px;
+        }
+        p {
+          font-size: 14px;
+          line-height: 2;
         }
         
     </style>
-    
     <body>
-        <nav class="navbar navbar-light navbar-fixed-top" style="background-color:#EBEBEB">
-            <a class="navbar-brand" href="mainpage.html" style="font-family:Anders">U H P</a>
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color:black">
+            <a class="navbar-brand" href="mainpage.html" style="font-family:Anders"><span class="inverse">U H P</span></a>
             <ul class="nav navbar-nav" style="font-family:avenir">
-                <li class="nav-item active">
-                    <a class="nav-link" href="mainpage.html">Home<span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="mappage.html">Contribute</a>
+                    <a class="nav-link" href="mainpage.html"><span class="inverse">Home</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="mappage.html"><span class="inverse">Contribute</span><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </nav>
         
-        <div class="jumbotron jumbotron-fluid" id="landing">
-            <div class="container">
-                <h1 class="display-3"><span id="uhp">Urban Help Project</span></h1>
-                <p class="lead">Crowdsourcing location data to better serve the urban community.</p>
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="description">
+                    <h1 class="form-group title">Description</h1>
+                </div>
+                <div id="form">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <fieldset class="form-group row">
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="name">Name:</label>
+                                <div class="col-sm-9">
+                                    <input name="name" class="form-control" placeholder="First and/or Last name">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="name">Age:</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control" name="age">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="height">Height:</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" id="feet">
+                                        <option></option>
+                                        <option>1 ft</option>
+                                        <option>2 ft</option>
+                                        <option>3 ft</option>
+                                        <option>4 ft</option>
+                                        <option>5 ft</option>
+                                        <option>6 ft</option>
+                                        <option>7 ft</option>    
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="form-control" id="inches">
+                                        <option></option>
+                                        <option>1 in</option>
+                                        <option>2 in</option>
+                                        <option>3 in</option>
+                                        <option>4 in</option>
+                                        <option>5 in</option>
+                                        <option>6 in</option>
+                                        <option>7 in</option>
+                                        <option>8 in</option>
+                                        <option>9 in</option>
+                                        <option>10 in</option>
+                                        <option>11 in</option> 
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="weight">Weight:</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control" name="weight">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="ethnicity">Ethnicity:</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" name="ethnicity">
+                                </div>
+                            </div>
+
+
+                             <div class="form-group row">
+                                <label class="col-sm-3" for="notes">Notes:</label>
+                                <div class="col-sm-9">
+                                    <textarea name="notes" class="form-control" rows="3" placeholder="Time, distinguishing characteristics, shareable personal info, etc."></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-3" for="Coordinates">Coordinates:</label>
+                                <div class="col-sm-9">
+                                    <textarea id="coordinates" name="coordinates" class="form-control" rows="2" placeholder="Click on the map to get coordinates"></textarea>
+                                </div>
+                            </div>
+
+
+                            <button class="btn btn-primary" type="submit">Submit Location</button>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div id="map">
+                    <h1 class="form-group title">Map</h1>
+                </div>
+                
+                
+                <div id="jeesoo"></div>
+                <div id="output"></div>
+
+                <button class="mapButton btn btn-danger" onclick="deleteMarkers()">Delete Marker</button>
+                
             </div>
         </div>
         
-        <div class="container explanation">
-            <h1>ABOUT</h1>
-            <p class="center-block">The Urban Help Project is an effort to consolidate a network of community members that could potentially use support from local non-profit organizations. The concept of the project is simple: users (you!) feed location and appearence data of community members into our servers, and we parse the data into a graphical user interface available for use by our partnered non-profit organizations. Ideally with enough active users on any given day, the Urban Help Project could significantly streamline relief, rescue, and support efforts within the urban community.</p>
-            <hr class="m-y-2">
-        </div>
-        
-        <div class="container explanation">
-            <h1>OUR INSPIRATION</h1>
-            <p class="center-block">As students at the Johns Hopkins University in the city of Baltimore, it was impossible not to acknowledge that our community was broken. It came to a point where even at our school campus we were able to recognize the same faces over and over asking for spare change outside the nearby Chipotle, or just wandering around the decrepit alleyways they were forced to call home. Having worked with local non-profits that worked to support victims of human trafficking in Baltimore city, such as <a target="_blank" href="http://www.safehouseofhope.org">The Safe House of Hope</a>, we found that a big problem in operations for organziations such as these was simply not knowing where the people they needed to help were located! We developed the Urban Help Project to not only logistically help these local non-profit organizations, but to also promote greater community outreach, especially within our own school community. The Urban Help Project more or less requires person-to-person interaction with those that we want to help, and the hope of this is that we can work towards real community cohesian.</p>
-        </div>
-        
-        <form>
-            <fieldset>
-                <a href="newuhp.html" class="btn btn-success center-block" role="button" id="final">Contribute</a>
-            </fieldset>
-        </form>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
     </body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiPakdfnAN2jSuKVqZDd2MOV2_QgUO9ac&callback=initMap"
+    async defer></script>
+    
+    <script type="text/javascript">
+        
+      var map;
+      var myLatlng = {lat: 39.9522, lng: -75.1932}; 
+      var markers = [];
+      var markerData;  
+      
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('jeesoo'), {
+          center: myLatlng,
+          zoom: 8
+        });
+        // This event listener will call addMarker() when the map is clicked.    
+        map.addListener('click', function(event) {
+            clear();    
+            createMarker(event.latLng);
+            document.getElementById("coordinates").value= markerData;   
+          }); 
+ 
+            
+/*        marker.addListener('click', function() {
+          setMapOnAll(null);
+          markers = [];
+        })    
+*/
+      }    
+  
+// Adds a marker to the map and push to the array. 
+      function createMarker(location) {
+          deleteMarkers();
+          var marker = new google.maps.Marker({
+            position: location,
+            map: map
+          });
+          markers.push(marker); //marker is created
+          markerData=location;
+/*          document.getElementById("output").innerHTML=location;   */
+      }   
+//when called, shows coordinate point
+      function viewData() {
+      }
+//return markerData content
+        function retrieveLocation() {
+            return markerData;
+        }
+// Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+        
+// Deletes all markers in the array by removing references to them, in this case: only one needs to be removed
+      function deleteMarkers() {
+        setMapOnAll(null);
+        markers = [];
+        markerData = null;
+      }
+      function clear() {
+        document.getElementById("output").innerHTML="";
+      }
+    
+    </script>
     
 </html>
